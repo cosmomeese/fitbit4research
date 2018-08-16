@@ -7,21 +7,23 @@ N.B. the the script presently uses a forked version of teramonagi's work (https:
 
 N.B. file paths are not cleaned in this version, so update these as required on your version
 
-To use:
+## To use:
 
 1) update FitbitAPIKeys
-update the 'FitbitAPIKeys - Example.R' file with your client, secret keys and callback URL (see Fitbit API keys preperation from https://github.com/teramonagi/fitbitr/blob/master/README.md)
-rename 'FitbitAPIKeys - Example.R' to 'FitbitAPIKeys.R'
+- update the 'FitbitAPIKeys - Example.R' file with your client, secret keys and callback URL (see Fitbit API keys preperation from https://github.com/teramonagi/fitbitr/blob/master/README.md)
+- rename 'FitbitAPIKeys - Example.R' to 'FitbitAPIKeys.R'
 
-2) add accounts (Study ID, download start date, email addresses) to 'fitbitLogins-Clean-OnePerEmail.csv'
-N.B. passwords are recommended but optional since these must be entered manually anyways
-N.B. similarly, end date is optional. If not provided the script will just continue to download the most recent data whenever it is run.
+2) update fitbitLogins-Clean-OnePerEmail.csv
+- add accounts (Study ID, download start date, email addresses) to 'fitbitLogins-Clean-OnePerEmail.csv'
+- N.B. passwords are recommended but optional since these must be entered manually anyways
+- N.B. similarly, end date is optional. If not provided the script will just continue to download the most recent data whenever it is run.
 
-3)
-open 'fitbitPullScriptForStudy.R' and change the CSV_FILEPATH to match the file you created in 2)
-also specify in RDATA_SAVE_FILEPATH where you want the script data file to be stored (this will contain both the fitbit data frame as fitbitData.df, and the meta data (from CSV_FILEPATH) and the most recent token information as metaDataAndTokens.list.
+3) update file locations in 'fitbitPullScriptForStudy.R'
+- open 'fitbitPullScriptForStudy.R' and change the CSV_FILEPATH to match the file you created in 2)
+- also specify in RDATA_SAVE_FILEPATH where you want the script data file to be stored (this will contain both the fitbit data frame as fitbitData.df, and the meta data (from CSV_FILEPATH) and the most recent token information as metaDataAndTokens.list.
 
-4)
-run 'fitbitPullScriptForStudy.R' and follow the prompts in the console (see the instructions above the pullFitbitData() function for examples)
+4) run 'fitbitPullScriptForStudy.R' 
+- and follow the prompts in the console (see the instructions above the pullFitbitData() function for examples)
 
-N.B. the Fitbit API is rate limited to 150 requests per hour. The current script will (greedily) attempt to download as much data as possible and will hit the rate limit if you try to download too many days at once. If this happens the script will report and throw an error, refresh the token and move on to the next person. This is fine. Simply wait until the next hour and try again to continue downloading more days of data.
+## N.B. API Rate Limits
+The Fitbit API is rate limited to 150 requests per hour. The current script will (greedily) attempt to download as much data as possible and will hit the rate limit if you try to download too many days at once. If this happens the script will report and throw an error, refresh the token and move on to the next person. This is fine. Simply wait until the next hour and try again to continue downloading more days of data.
