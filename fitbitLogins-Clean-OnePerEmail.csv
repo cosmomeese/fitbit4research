@@ -1,0 +1,4 @@
+Study Identifier,NYHA,StartDate,EndDate,Fitbit Email,Kit,Password
+StudyID,optional,31-Jan-18,2018-12-13,some-email@gmail.com,optional,optional
+NextEntry,optional,01-Feb-18,2018-12-14,some-different-email@gmail.com,optional,optional
+AndSoOn,optional,02-Feb-18,2018-12-15,another-different-email@gmail.com,optional,optional
