@@ -27,3 +27,9 @@ N.B. file paths are not cleaned in this version, so update these as required on 
 
 ## N.B. API Rate Limits
 The Fitbit API is rate limited to 150 requests per hour. The current script will (greedily) attempt to download as much data as possible and will hit the rate limit if you try to download too many days at once. If this happens the script will report and throw an error, refresh the token and move on to the next person. This is fine. Simply wait until the next hour and try again to continue downloading more days of data.
+
+## httrTEST.R
+contains code for testing your httr connection and API keys (no library is loaded as part of the script so you can choose to run tests against the offical version or my forked version)
+
+## metaDataTokenRenamer.R
+provides additional utility functions for safely modifying and viewing the meta data and token information, the whole script however ensures that the list names in the metaDataAndToken.list output as part the file located at RDATA_SAVE_FILEPATH match the StudyIdentifiers in the actual list items. It also removes duplicated tokens (which can happen if you accidentally use the same email address twice)
